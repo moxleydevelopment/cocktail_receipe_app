@@ -1,0 +1,177 @@
+<?php
+require 'Drink_Receipes.php';
+$min = 0;
+$max = count($drinks);
+ $x = mt_rand($min, $max);
+
+?>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand|Kalam|Merienda|Permanent+Marker|Yeon+Sung" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="bartender/BarCss.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <title>Cocktail Emporium</title>
+    </head>
+
+    <body id="mainBody" class="mainBody">
+        <div id="headerDiv" class="headerDiv">
+            <a href="index.html" class="active">Cocktail Emporium</a>
+            <div id="dropdown-content" class="dropdown-content">
+                <a href="#home">Home</a>
+                <a href="#home">About</a>
+                <a href="#home">Services</a>
+                <a href="#home">Contact</a>
+            </div>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div id="mainImageDiv" class="mainImageDiv">
+
+        </div>
+        <div class="socialDiv">
+            <a><i class='fab fa-facebook'></i></a>
+            <a><i class='fab fa-instagram'></i></a>
+            <a><i class='fab fa-snapchat'></i></a>
+            <a><i class='fab fa-linkedin'></i></a>
+        </div>
+
+
+
+        <div id="aboutDiv" class="aboutDiv">
+            <h3>The "Spirits" to Our Success!</h3>
+            <p>This section would be a good location to provide the intro to the purpose of the business and its creation. A slogan or company motto can be intergrated into this section as well, and graphically express its importance.
+            </p>
+        </div>
+        <div id="serviceDiv" class="serviceDiv">
+
+
+        </div>
+        <div id="cocktailDiv" class="cocktailDiv">
+            <h2>Drink of the Day!</h2>
+
+
+            <img src="<?php echo $drinks[$x]->getDrinkThumb(); ?>">
+            <?php
+                echo "<h3>";
+                echo  $drinks[$x]->getDrink(); 
+                echo "</h3>";
+        
+        
+        ?>
+                <div id="ingredientsDiv" class="ingredientsDiv">
+                    <h4 id="dkInstruc" class="dkInstruc">Ingredients:</h4>
+                    <p>
+                        <?php echo $drinks[$x]->getInstructions1(); $drinks[$x]->getIngredient1();?>
+                    </p>
+
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure2(); $drinks[$x]->getIngredient2();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure3(); $drinks[$x]->getIngredient3();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure4(); $drinks[$x]->getIngredient4();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure5(); $drinks[$x]->getIngredient5();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure6(); $drinks[$x]->getIngredient6();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure7(); $drinks[$x]->getIngredient7();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure8(); $drinks[$x]->getIngredient8();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure9(); $drinks[$x]->getIngredient9();?>
+                    </p>
+
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure10(); $drinks[$x]->getIngredient10();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure11(); $drinks[$x]->getIngredient11();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure12(); $drinks[$x]->getIngredient12();?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure13()?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure14()?>
+                    </p>
+                    <p>
+                        <?php echo $drinks[$x]->getMeasure15()?>
+                    </p>
+                </div>
+
+                <div id="instructionsDiv" class="instructionsDiv">
+                    <h4>Mixing Instructions:</h4>
+
+                    <p>
+                        <?php echo $drinks[$x]->getInstructions()?>
+                    </p>
+
+                </div>
+
+
+
+
+        </div>
+        <div id="serviceDiv" class="serviceDiv">
+
+
+        </div>
+        <h3 style="color:#911427;">Contact Form</h3>
+        <div id="formDiv" class="formDiv">
+            <form action="phpDB_Connection.php" method="post">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Your name..">
+
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Your last name..">
+
+                <label for="areaCode">Area Code:</label>
+                <input type="text" id="areaCode" name="areaCode" placeholder="Your 3 digit area code..">
+
+                <label for="number">Phone Number:</label>
+                <input type="text" id="number" name="number" placeholder="Your 7 digit phone number..">
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Your email address..">
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" placeholder="Please leave comments here.." style="height:200px"></textarea>
+
+                <input type="submit">
+            </form>
+        </div>
+
+        <script src="bartender/BarJS.js"></script>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("dropdown-content");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+
+                }
+            }
+        </script>
+
+    </body>
+
+    </html>
